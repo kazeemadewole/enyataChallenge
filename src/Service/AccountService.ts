@@ -1,7 +1,7 @@
 import { inject, injectable } from "inversify";
 import TYPES from "../Config/types";
 import { AccountRepository } from "../Repository/AccountRepository";
-import { ISignUp } from "../types/account.interface";
+import { IsignIn, ISignUp } from "../types/account.interface";
 import * as bcrypt from 'bcryptjs';
 import { encode, generateOtp } from "../utils/helper";
 import { OtpRepository } from "../Repository/OtpRepository";
@@ -46,7 +46,7 @@ export class AccountService {
     }
 
 
-    async signIn(payload: any) {
+    async signIn(payload: IsignIn) {
         try {
             const user: any = await this.accountRepository.findOne(payload.email.toLowerCase());
             if(!user) {

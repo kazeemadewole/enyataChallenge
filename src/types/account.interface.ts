@@ -5,3 +5,8 @@ export interface ISignUp {
     password: string,
 
 }
+
+export interface IsignIn {
+    email: string,
+    password: string
+  }

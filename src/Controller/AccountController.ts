@@ -22,8 +22,8 @@ export class AccountController extends BaseController {
       res: Response
     ) {
       try {
-  
-        const result = await this.accountService.signUp();
+        
+        const result = await this.accountService.signUp(req.body);
 
         return this.success({ res, data: result });
       } catch (error) {
@@ -37,8 +37,8 @@ export class AccountController extends BaseController {
       res: Response
     ) {
       try {
-  
-        const result = await this.accountService.signIn();
+        const payload = {email: req.body.email, password: req.body.password}
+        const result = await this.accountService.signIn(payload);
 
         return this.success({ res, data: result });
       } catch (error) {
